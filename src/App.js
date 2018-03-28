@@ -10,10 +10,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.loadPhotos();
-  }
-
-  loadPhotos = () => {
     fetchPhotos()
       .then(photoData => {
         this.setState({
@@ -22,18 +18,20 @@ class App extends Component {
         });
       })
       .catch(error => {
+        console.log(error)
         this.setState({ error: error });
       });
-  };
+  }
 
   render() {
+
     const MyMapComponent = withGoogleMap(props => (
-      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 40.7575285, lng: -73.9884469 }}>
+      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 40.7575285, lng: -73.9884469 }}  >
         {props.isMarkerShown && <Marker position={{ lat: 40.7575285, lng: -73.9884469 }} />}
       </GoogleMap>
     ));
 
-    const photoData = this.state.photoData;
+    const { photoData, error } = this.state;
 
     return (
       <div className="App">
@@ -56,18 +54,13 @@ class App extends Component {
             {photoData &&
               photoData.map((m, i) => {
                 if (i < 3) {
-                  return <Photo src={m.images.standard_resolution.url} />;
-                }
+                  return <Photo src={m.images.standard_resolution.url} key={i} />;
+                } else return null;
               })}
+            <a href="https://www.cornwell.com.au/" target="_blank" rel="noopener noreferrer">
+              <p id="follow-us">follow us &#160; &#10132;</p>
+            </a>
           </PhotoContainer>
-
-          {/* <PhotoContainer>
-            <Photo />
-            <Photo>
-              <p id="follow-us">follow us &#x27F6;</p>
-            </Photo>
-            <Photo />
-          </PhotoContainer> */}
         </Container>
       </div>
     );

@@ -21,6 +21,7 @@ export const YelloBg = styled.div`
   background: #fddb00;
   height: 40vh;
   width: 100vw;
+  max-width: 100%;
   z-index: -2;
   `
   
@@ -54,38 +55,29 @@ export const YelloBg = styled.div`
 
 export const MapContainer = styled.div`
   margin: 0 auto;
-  width: 63%;
+  width: 100%;
   height: 50vh;
-
+  
   #map {
     width: 100%;
     height: 100%;
   }
+  
+  ${media.tablet`
+    width: 63%;
+  `};
 `;
 
 export const PhotoContainer = styled.div`
   position: relative;
   width: 60vw;
-  margin-top: 10px;
+  margin: 10px auto 0;
   max-width: 100%; // scrollbar issue for Windows
   height: 180vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
-  ${media.tablet`
-    width: 100vw;
-    margin-top: 0;
-    flex-wrap: nowrap;
-    height: 33.3vw;
-    max-height: 33.3%; // scrollbar issue for Windows
-  `};
-`;
 
-export const Photo = styled.img`
-  width: 100%;
-  box-sizing: border-box;
-  
   #follow-us {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -95,10 +87,32 @@ export const Photo = styled.img`
     white-space: nowrap;
     padding: 1rem 2rem;
     background: white;
+    transition: all .4s;
+    color: black;
+    
+    &:hover {
+      background: #fddb00;
+      color: white;
+    }
   }
+
+  ${media.tablet`
+    width: 100vw;
+    margin-top: 0;
+    flex-wrap: nowrap;
+    height: 33.3vw;
+    max-height: 33.3%;
+  `};
+`;
+
+export const Photo = styled.img`
+  width: 100%;
+  box-sizing: border-box;
+  height: 33.333%;
   
   ${media.tablet`
   width: 33.333%;
+  height: auto;
   `};
   
 `;
