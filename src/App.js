@@ -1,14 +1,38 @@
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { Container, YelloBg, Title, MapContainer, PhotoContainer, Photo } from "./assets/styles";
+import { fetchPhotos } from "./api/InstaApi";
 
 class App extends Component {
+  state = {
+    photoData: null,
+    error: null
+  };
+
+  componentDidMount() {
+    this.loadPhotos();
+  }
+
+  loadPhotos = () => {
+    fetchPhotos()
+      .then((photoData) => {
+        this.setState({ 
+          photoData,
+          error: null  })
+      })
+      .catch((error) => {
+        this.setState({ error: error })
+      })
+  }
+
   render() {
     const MyMapComponent = withGoogleMap(props => (
       <GoogleMap defaultZoom={8} defaultCenter={{ lat: 40.7575285, lng: -73.9884469 }}>
         {props.isMarkerShown && <Marker position={{ lat: 40.7575285, lng: -73.9884469 }} />}
       </GoogleMap>
     ));
+
+    const photoData = this.state.photoData
 
     return (
       <div className="App">
@@ -27,6 +51,9 @@ class App extends Component {
             />
           </MapContainer>
 
+          {photoData && photoData.map(m => {
+            console.log(m)
+          })}
           <PhotoContainer>
             <Photo />
             <Photo>
