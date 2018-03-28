@@ -5,4 +5,5 @@
 `npm start` or `yarn start`
 
 #### or just visit
-cornwell-challenge-tomomi.surge.sh
+
+[Deployed site](https://cornwell-challenge-tomomi.surge.sh)

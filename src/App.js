@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import { Container, YelloBg, Title, Map, PhotoContainer, Photo } from "./assets/styles";
+import { Container, YelloBg, Title, MapContainer, PhotoContainer, Photo } from "./assets/styles";
 
 class App extends Component {
   render() {
-    const MyMapComponent = 
-      withGoogleMap(props => (
-        <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-          {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-        </GoogleMap>
-      ))
- 
+    const MyMapComponent = withGoogleMap(props => (
+      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 40.7575285, lng: -73.9884469 }}>
+        {props.isMarkerShown && <Marker position={{ lat: 40.7575285, lng: -73.9884469 }} />}
+      </GoogleMap>
+    ));
 
     return (
       <div className="App">
@@ -19,22 +17,23 @@ class App extends Component {
           <Title>
             <span>ABOUT US</span>
           </Title>
-          <Map>
+          <MapContainer>
             <MyMapComponent
               isMarkerShown
               googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `400px` }} />}
+              containerElement={<div style={{ height: `100%` }} />}
               mapElement={<div style={{ height: `100%` }} />}
             />
-          </Map>
+          </MapContainer>
 
-              <PhotoContainer>
-      <Photo />
-      <Photo><p id="follow-us">follow us &#x27F6;</p></Photo>
-      <Photo />
-    </PhotoContainer>
-          
+          <PhotoContainer>
+            <Photo />
+            <Photo>
+              <p id="follow-us">follow us &#x27F6;</p>
+            </Photo>
+            <Photo />
+          </PhotoContainer>
         </Container>
       </div>
     );

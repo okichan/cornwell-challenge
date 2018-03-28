@@ -52,11 +52,11 @@ export const YelloBg = styled.div`
   }
 `;
 
-export const Map = styled.div`
+export const MapContainer = styled.div`
   margin: 0 auto;
   width: 63%;
   height: 50vh;
-  border: 1px solid red;
+  // border: 1px solid red;
 
   #map {
     width: 100%;
