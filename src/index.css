@@ -1,5 +1,43 @@
-body {
+@font-face {
+  font-family: 'MarkWXXRegular';
+  src:  url('./assets/fonts/34219E_0_0.woff') format('woff2'),
+        url('./assets/fonts/34219E_0_0.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkWXXLight';
+  src:  url('./assets/fonts/34219E_1_0.woff2') format('woff2'),
+        url('./assets/fonts/34219E_1_0.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkWXXBold';
+  src:  url('./assets/fonts/34219E_2_0.woff2') format('woff2'),
+        url('./assets/fonts/34219E_2_0.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+div,
+span,
+h1,
+p,
+a,
+img,
+iframe
+ {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background: white;
+  font-family: MarkWXXBold, sans-serif;
 }

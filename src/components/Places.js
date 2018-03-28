@@ -1,11 +1,24 @@
 import React, { Component } from "react";
-
-class Places extends Component {
-  render() {
-    return(
-      <div>This is the Places Component</div>
-    )
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+ 
+export class MapContainer extends Component {
+render() {
+    return (
+      <Map google={this.props.google} zoom={14}>
+ 
+        <Marker onClick={this.onMarkerClick}
+                name={'Current location'} />
+ 
+        <InfoWindow onClose={this.onInfoWindowClose}>
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+        </InfoWindow>
+      </Map>
+    );
   }
 }
-
-export default Places
+ 
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyDl5I-Ekh_5xLayxK4uapID-4a0ROX566E')
+})(MapContainer)
