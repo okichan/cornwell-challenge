@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { Container, YelloBg, Title, Map, PhotoContainer, Photo } from "./assets/styles";
 
 class App extends Component {
   render() {
-    const MyMapComponent = withScriptjs(
+    const MyMapComponent = 
       withGoogleMap(props => (
         <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
           {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
         </GoogleMap>
       ))
-    );
+ 
+
     return (
       <div className="App">
         <Container>
