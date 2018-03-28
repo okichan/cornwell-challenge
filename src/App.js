@@ -15,15 +15,16 @@ class App extends Component {
 
   loadPhotos = () => {
     fetchPhotos()
-      .then((photoData) => {
-        this.setState({ 
+      .then(photoData => {
+        this.setState({
           photoData,
-          error: null  })
+          error: null
+        });
       })
-      .catch((error) => {
-        this.setState({ error: error })
-      })
-  }
+      .catch(error => {
+        this.setState({ error: error });
+      });
+  };
 
   render() {
     const MyMapComponent = withGoogleMap(props => (
@@ -32,7 +33,7 @@ class App extends Component {
       </GoogleMap>
     ));
 
-    const photoData = this.state.photoData
+    const photoData = this.state.photoData;
 
     return (
       <div className="App">
@@ -51,16 +52,22 @@ class App extends Component {
             />
           </MapContainer>
 
-          {photoData && photoData.map(m => {
-            console.log(m)
-          })}
           <PhotoContainer>
+            {photoData &&
+              photoData.map((m, i) => {
+                if (i < 3) {
+                  return <Photo src={m.images.standard_resolution.url} />;
+                }
+              })}
+          </PhotoContainer>
+
+          {/* <PhotoContainer>
             <Photo />
             <Photo>
               <p id="follow-us">follow us &#x27F6;</p>
             </Photo>
             <Photo />
-          </PhotoContainer>
+          </PhotoContainer> */}
         </Container>
       </div>
     );

@@ -56,12 +56,10 @@ export const MapContainer = styled.div`
   margin: 0 auto;
   width: 63%;
   height: 50vh;
-  // border: 1px solid red;
 
   #map {
     width: 100%;
     height: 100%;
-
   }
 `;
 
@@ -84,9 +82,8 @@ export const PhotoContainer = styled.div`
   `};
 `;
 
-export const Photo = styled.div`
+export const Photo = styled.img`
   width: 100%;
-  border: 1px solid red;
   box-sizing: border-box;
   
   #follow-us {
@@ -101,7 +98,7 @@ export const Photo = styled.div`
   }
   
   ${media.tablet`
-  height: 100%;
+  width: 33.333%;
   `};
   
 `;
