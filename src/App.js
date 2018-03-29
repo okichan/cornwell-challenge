@@ -6,13 +6,13 @@ import { MapComponent } from "./api/GoogleMaps";
 class App extends Component {
   state = {
     photoData: null,
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
-    isMarkerShown: true
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDl5I-Ekh_5xLayxK4uapID-4a0ROX566E",
+    isMarkerShown: false
   };
 
   componentDidMount() {
     this.loadPhotos()
-    // this.delayedShowMarker()
+    this.delayedShowMarker()
   }
   
   loadPhotos = () => {
@@ -28,11 +28,11 @@ class App extends Component {
       });
   }
 
-  // delayedShowMarker = () => {
-  //   setTimeout(() => {
-  //     this.setState({ isMarkerShown: true });
-  //   }, 2000);
-  // };
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true });
+    }, 1500);
+  };
 
   render() {
     const { photoData, isMarkerShown, googleMapURL } = this.state;

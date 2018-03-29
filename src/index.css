@@ -37,6 +37,7 @@ iframe
 }
 
 body {
+  overflow-x: hidden;
   background: white;
   font-family: MarkWXXBold, sans-serif;
 }

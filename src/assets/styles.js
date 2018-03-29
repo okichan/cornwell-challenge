@@ -19,14 +19,14 @@ export const Container = styled.div`
 export const YelloBg = styled.div`
   position: absolute;
   background: #fddb00;
-  height: 40vh;
+  height: 35vh;
   width: 100vw;
   max-width: 100%;
   z-index: -2;
   `
   
   export const Title = styled.h1`
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   position: relative;
   font-size: 1.5rem;
   text-transform: uppercase;

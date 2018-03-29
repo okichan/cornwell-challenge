@@ -1,7 +1,6 @@
 /* global google */
-import React, { Component } from "react";
+import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, Polygon } from "react-google-maps";
-const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 
 let position = { lat: -37.812534, lng: 144.937896 };
 let customIcon = {
@@ -14,7 +13,7 @@ let customIcon = {
 export const MapComponent = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={15}
+      defaultZoom={14}
       defaultCenter={position}
       defaultOptions={{
         styles: [
@@ -230,10 +229,21 @@ export const MapComponent = withScriptjs(
           },
           {
             "featureType": "road.local",
-            "elementType": "labels.text.fill",
             "stylers": [
               {
-                "color": "#9e9e9e"
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#f7f7f7"
+              },
+              {
+                "visibility": "on"
               }
             ]
           },
@@ -298,6 +308,7 @@ export const MapComponent = withScriptjs(
           { lat: -37.811448, lng: 144.937743 },
           { lat: -37.811326, lng: 144.937089 }
         ]}
+
         options={{
           strokeColor: "#fddb00",
           fillColor: "#FFCE00",
@@ -307,7 +318,7 @@ export const MapComponent = withScriptjs(
         }}
       />
 
-      {props.isMarkerShown && <Marker icon={customIcon} position={position} />}
+      {props.isMarkerShown && <Marker icon={customIcon} position={position} animation={google.maps.Animation.DROP} />}
     </GoogleMap>
   ))
 );
