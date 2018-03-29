@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { Container, YelloBg, Title, MapContainer, PhotoContainer, Photo } from "./assets/styles";
 import { fetchPhotos } from "./api/InstaApi";
-import { MyMapComponent } from "./api/GoogleMaps";
+import { MapComponent } from "./api/GoogleMaps";
 
 class App extends Component {
   state = {
     photoData: null,
-    error: null,
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
+    isMarkerShown: true
   };
 
   componentDidMount() {
+    this.loadPhotos()
+    // this.delayedShowMarker()
+  }
+  
+  loadPhotos = () => {
     fetchPhotos()
       .then(photoData => {
         this.setState({
@@ -21,12 +25,17 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
-        this.setState({ error: error });
       });
   }
 
+  // delayedShowMarker = () => {
+  //   setTimeout(() => {
+  //     this.setState({ isMarkerShown: true });
+  //   }, 2000);
+  // };
+
   render() {
-    const { photoData, error, googleMapURL } = this.state;
+    const { photoData, isMarkerShown, googleMapURL } = this.state;
 
     return (
       <div className="App">
@@ -36,9 +45,9 @@ class App extends Component {
             <span>ABOUT US</span>
           </Title>
           <MapContainer>
-            <MyMapComponent
-              isMarkerShown
-              googleMapURL={ googleMapURL }
+            <MapComponent
+              isMarkerShown={isMarkerShown}
+              googleMapURL={googleMapURL}
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `100%` }} />}
               mapElement={<div style={{ height: `100%` }} />}
