@@ -273,7 +273,12 @@ export const MapComponent = withScriptjs(
               }
             ]
           }
-        ]
+        ],
+        mapTypeControl: false,
+        streetViewControl: false,
+        zoomControl: false,
+        scrollwheel: true,
+        fullscreenControl: false
         
       }}
     >
