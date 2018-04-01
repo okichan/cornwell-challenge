@@ -58,19 +58,21 @@ export const MapComponent = withScriptjs(
             ]
           },
           {
-            "featureType": "administrative.land_parcel",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#bdbdbd"
-              }
-            ]
-          },
-          {
             "featureType": "landscape",
             "stylers": [
               {
                 "color": "#e3e3e3"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.man_made",
+            "stylers": [
+              {
+                "color": "#eeeeee"
               },
               {
                 "visibility": "on"
@@ -96,6 +98,30 @@ export const MapComponent = withScriptjs(
           },
           {
             "featureType": "poi",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#d2d2d2"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#ff0000"
+              },
+              {
+                "visibility": "simplified"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
             "elementType": "labels.icon",
             "stylers": [
               {
@@ -111,7 +137,7 @@ export const MapComponent = withScriptjs(
             "elementType": "labels.text.fill",
             "stylers": [
               {
-                "color": "#757575"
+                "color": "#515151"
               }
             ]
           },
@@ -120,16 +146,34 @@ export const MapComponent = withScriptjs(
             "elementType": "geometry",
             "stylers": [
               {
-                "color": "#e5e5e5"
+                "color": "#cccccc"
+              },
+              {
+                "visibility": "on"
               }
             ]
           },
           {
             "featureType": "poi.park",
-            "elementType": "labels.text.fill",
+            "elementType": "geometry.fill",
             "stylers": [
               {
-                "color": "#9e9e9e"
+                "color": "#c1c1c1"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#ff0000"
+              },
+              {
+                "visibility": "on"
               }
             ]
           },
@@ -169,15 +213,6 @@ export const MapComponent = withScriptjs(
             ]
           },
           {
-            "featureType": "road.arterial",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#757575"
-              }
-            ]
-          },
-          {
             "featureType": "road.highway",
             "stylers": [
               {
@@ -199,7 +234,7 @@ export const MapComponent = withScriptjs(
             "elementType": "geometry.fill",
             "stylers": [
               {
-                "color": "#d1d1d1"
+                "color": "#e5e5e5"
               },
               {
                 "visibility": "on"
@@ -228,19 +263,20 @@ export const MapComponent = withScriptjs(
             ]
           },
           {
-            "featureType": "road.local",
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.fill",
             "stylers": [
               {
-                "visibility": "on"
+                "color": "#cdcdcd"
               }
             ]
           },
           {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.stroke",
             "stylers": [
               {
-                "color": "#f7f7f7"
+                "color": "#808080"
               },
               {
                 "visibility": "on"
@@ -276,10 +312,25 @@ export const MapComponent = withScriptjs(
           },
           {
             "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#cfcfcf"
+              },
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
             "elementType": "labels.text.fill",
             "stylers": [
               {
                 "color": "#9e9e9e"
+              },
+              {
+                "visibility": "on"
               }
             ]
           }
@@ -310,8 +361,8 @@ export const MapComponent = withScriptjs(
         ]}
 
         options={{
-          strokeColor: "#fddb00",
-          fillColor: "#FFCE00",
+          strokeColor: "#E2C400",
+          fillColor: "#E2C400",
           strokeOpacity: 0.28,
           strokeWeight: 1,
           fillOpacity: 0.5
